@@ -6,15 +6,12 @@ let colorPlayer1 = 'rgb(72, 209, 204)'
 let colorPlayer2 = 'rgb(255, 165, 0)'
 let coord = ''
 let countPlayer1 = 0, countPlayer2 = 0
+let interval_1000
+let num_of_players = 1
 let maxJ
 let squaresClaimed = 0
 let topG,leftG
 let totalsquaresClaimed = 0
-let num_of_players = 1
-
-let time_control
-let intervalo_2000
-let seconds_delay = 10000
 
 document.getElementById('id_radio_one').checked = true
 
@@ -602,7 +599,7 @@ function showscore(player,SquaresClaimed){
     score2 = document.getElementById('div-player2')
 
     if (count1 > count2){
-      intervalo_2000 = setInterval(() => { 
+      interval_1000 = setInterval(() => { 
         if (score1.style.fontSize === '30px') {
           score1.style.fontSize = '45px' 
         }else{
@@ -610,7 +607,7 @@ function showscore(player,SquaresClaimed){
         }
       }, 1000);
     }else{
-      intervalo_2000 = setInterval(() => { 
+      interval_1000 = setInterval(() => { 
         if (score2.style.fontSize === '30px') {
           score2.style.fontSize = '45px' 
         }else{
@@ -628,7 +625,7 @@ function randomNumber(min, max) {
 
 const btnRestart = document.getElementById("id-btn-close")
 btnRestart.addEventListener('click', () => {
-clearInterval(intervalo_2000)
+clearInterval(interval_1000)
 document.getElementById('id_radio_one').checked = true
 window.location.reload()
 })
